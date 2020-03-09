@@ -1,41 +1,40 @@
 <template>
-  <div class="wrapper">
-    <svg
-      class="spinner"
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
-      v-if="!hasFinished"
-    >
-      <g class="spinnerCircle">
-        <circle class="percentageUploaded" cx="50" cy="50" r="45" />
-        <path
-          :stroke-dasharray="dashArray"
-          class="percentageRemaining"
-          d="
+  <section class="container">
+    <div class="wrapper">
+      <svg
+        class="spinner"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+        v-if="!hasFinished"
+      >
+        <g class="spinnerCircle">
+          <circle class="percentageUploaded" cx="50" cy="50" r="45" />
+          <path
+            :stroke-dasharray="dashArray"
+            class="percentageRemaining"
+            d="
             M 50, 50
             m -45, 0
             a 45,45 0 1,0 90,0
             a 45,45 0 1,0 -90,0
           "
-        ></path>
-      </g>
-    </svg>
-    <div v-if="hasFinished">
-      ur done yay
+          ></path>
+        </g>
+      </svg>
+      <div class="percentageLabel">{{ percentageUploaded }}%</div>
     </div>
-    <span class="label">
-      Uploaded: {{ percentageUploaded }} // Remaining: {{ percentageRemaining }}
-    </span>
-    <button @click="startUpload">Start Upload</button>
-    <button @click="pauseUpload">
-      <span v-if="!hasStarted || hasFinished">cant click</span>
-      Pause Upload
-    </button>
-    <button @click="resetUpload">
-      <span v-if="!hasStarted">cant click</span>
-      Reset Upload
-    </button>
-  </div>
+    <div class="buttons">
+      <button @click="startUpload">Start Upload</button>
+      <button @click="pauseUpload">
+        <span v-if="!hasStarted || hasFinished">cant click</span>
+        Pause Upload
+      </button>
+      <button @click="resetUpload">
+        <span v-if="!hasStarted">cant click</span>
+        Reset Upload
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -56,10 +55,11 @@ export default {
       this.hasStarted = true;
       this.timerInterval = setInterval(() => {
         if (this.percentageUploaded < this.totalPercentage) {
-          this.percentageUploaded += 1;
+          this.percentageUploaded++;
         }
         if (this.percentageUploaded === this.totalPercentage) {
           this.hasFinished = true;
+          clearInterval(this.timerInterval);
         }
       }, 100);
     },
@@ -87,11 +87,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  border: 1px solid grey;
+  padding: 20px;
+  background: #fff;
+  border-radius: 20px;
+  height: 600px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .wrapper {
-  background: pink;
+  width: 250px;
+  height: 250px;
   position: relative;
-  width: 300px;
-  height: 300px;
 }
 
 .spinner {
@@ -99,9 +111,22 @@ export default {
   stroke: none;
 }
 
+.percentageLabel {
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  width: 250px;
+  height: 250px;
+}
+
 .percentageUploaded {
   stroke-width: 9px;
-  stroke: #6c57c2;
+  stroke: #3c9ffd;
 }
 
 .percentageRemaining {
@@ -109,11 +134,11 @@ export default {
   stroke-linecap: round;
   transform: rotate(90deg);
   transform-origin: center;
-  stroke: #cfcfcf;
-  animation: yay-spinny 2s linear infinite;
+  stroke: #e7eaed;
+  animation: rotateSpinner 2s linear infinite;
 }
 
-@keyframes yay-spinny {
+@keyframes rotateSpinner {
   0% {
     transform: rotate(0deg);
   }
