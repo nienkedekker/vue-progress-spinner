@@ -16,8 +16,8 @@
 <script>
 import ProgressChart from "./components/progress/ProgressChart";
 import ProgressLabel from "./components/progress/ProgressLabel";
-import Message from "./components/Message";
-import Buttons from "./components/Buttons";
+import Message from "./components/Message/Message";
+import Buttons from "./components/Buttons/Buttons";
 import { mapState } from "vuex";
 
 export default {

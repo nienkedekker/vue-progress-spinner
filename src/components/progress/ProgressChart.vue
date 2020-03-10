@@ -4,20 +4,17 @@
       class="spinner"
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
+      shape-rendering="geometricPrecision"
     >
-      <g>
-        <circle class="percentageUploaded" cx="50" cy="50" r="45" />
-        <path
-          :stroke-dasharray="dashArray"
-          class="percentageRemaining"
-          d="
-            M 50, 50
-            m -45, 0
-            a 45,45 0 1,0 90,0
-            a 45,45 0 1,0 -90,0
-          "
-        ></path>
-      </g>
+      <circle class="background" cx="50" cy="50" r="45" />
+      <circle
+        stroke-dasharray="283"
+        :stroke-dashoffset="dashArray"
+        class="foreground"
+        cx="50"
+        cy="50"
+        r="45"
+      ></circle>
     </svg>
     <slot></slot>
   </div>
@@ -46,7 +43,7 @@ export default {
       return `${(
         (this.percentageRemaining / this.totalPercentage) *
         283
-      ).toFixed(0)} 283`;
+      ).toFixed(0)}`;
     }
   }
 };
@@ -54,27 +51,26 @@ export default {
 <style lang="scss">
 .progress {
   position: relative;
-  padding: 20px;
 }
 
 .spinner {
   fill: none;
   stroke: none;
+  animation: rotateSpinner 2s linear infinite;
 }
 
-.percentageUploaded {
-  stroke-width: 9px;
-  stroke: #3c9ffd;
+.background {
+  stroke-width: 5px;
+  stroke: #e7eaed;
 }
 
-.percentageRemaining {
-  stroke-width: 10px;
-  stroke-linecap: round;
+.foreground {
+  stroke-width: 5px;
+  border-radius: 100px;
   transform: rotate(90deg);
   transform-origin: center;
-  stroke: #e7eaed;
-  animation: rotateSpinner 2s linear infinite;
-  transition: stroke-dashoffset 200ms linear, stroke 200ms linear;
+  stroke: #3c9ffd;
+  stroke-linecap: round;
 }
 
 @keyframes rotateSpinner {

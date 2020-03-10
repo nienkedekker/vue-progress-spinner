@@ -41,7 +41,7 @@ export default new Vuex.Store({
           commit("finish_upload");
           clearInterval(state.timerInterval);
         }
-      }, 10);
+      }, 100);
     },
     pauseUpload({ commit, state }) {
       commit("pause_upload");

@@ -25,6 +25,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-variant-numeric: lining-nums;
 }
 
 .percentageLabelUploaded {

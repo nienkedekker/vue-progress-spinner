@@ -4,9 +4,9 @@
   </div>
 </template>
 <script>
-import Finished from "./dialogs/Finished.vue";
-import Canceling from "./dialogs/Canceling";
-import Uploading from "./dialogs/Uploading";
+import Finished from "../dialogs/Finished.vue";
+import Canceling from "../dialogs/Canceling";
+import Uploading from "../dialogs/Uploading";
 import { mapGetters } from "vuex";
 
 export default {
