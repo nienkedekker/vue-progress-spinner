@@ -30,7 +30,7 @@ export default {
 
 .percentageLabelUploaded {
   color: #000;
-  font-size: 48px;
+  font-size: 4em;
 }
 
 .percentageSign {
@@ -39,7 +39,7 @@ export default {
   vertical-align: top;
   display: inline-block;
   position: relative;
-  margin-left: -4px;
+  margin-left: -10px;
   top: 5px;
 }
 </style>
