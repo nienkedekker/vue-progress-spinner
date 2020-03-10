@@ -1,17 +1,36 @@
 <template>
   <div id="app">
-    <Spinner />
+    <div class="container">
+      <ProgressChart
+        :totalPercentage="totalPercentage"
+        :percentageUploaded="percentageUploaded"
+      >
+        <ProgressLabel :percentageUploaded="percentageUploaded" />
+      </ProgressChart>
+      <Message />
+      <Buttons />
+    </div>
   </div>
 </template>
 
 <script>
-import Spinner from "./components/Spinner.vue";
+import ProgressChart from "./components/progress/ProgressChart";
+import ProgressLabel from "./components/progress/ProgressLabel";
+import Message from "./components/Message";
+import Buttons from "./components/Buttons";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
   components: {
-    Spinner
-  }
+    ProgressChart,
+    ProgressLabel,
+    Buttons,
+    Message
+  },
+  computed: {
+    ...mapState(["totalPercentage", "percentageUploaded"])
+  },
 };
 </script>
 
@@ -25,5 +44,28 @@ html {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica,
     Arial, sans-serif;
+}
+
+#app {
+  border: 1px solid #e8e8e8;
+  margin: 20px;
+  background: #fff;
+  border-radius: 20px;
+  width: 350px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 6px 3px 29px -24px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 </style>

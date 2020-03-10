@@ -8,7 +8,8 @@ export default new Vuex.Store({
     hasStarted: false,
     hasFinished: false,
     isPaused: false,
-    percentageUploaded: 0
+    percentageUploaded: 0,
+    totalPercentage: 100
   },
   mutations: {
     start_upload(state) {
@@ -29,11 +30,37 @@ export default new Vuex.Store({
       state.percentageUploaded = 0;
     }
   },
+  actions: {
+    startUpload({ commit, state }) {
+      commit("start_upload");
+      state.timerInterval = setInterval(() => {
+        if (state.percentageUploaded < state.totalPercentage) {
+          state.percentageUploaded++;
+        }
+        if (state.percentageUploaded === state.totalPercentage) {
+          commit("finish_upload");
+          clearInterval(state.timerInterval);
+        }
+      }, 10);
+    },
+    pauseUpload({ commit, state }) {
+      commit("pause_upload");
+      clearInterval(state.timerInterval);
+    },
+    resetUpload({ commit, state }) {
+      commit("reset_upload");
+      clearInterval(state.timerInterval);
+    }
+  },
   getters: {
     showProgress: state => !state.hasFinished,
-    showCancelDialog: state => state.isPaused,
-    showFinishedDialog: state => state.hasFinished,
-    percentageUploaded: state => state.percentageUploaded,
+    uploadState: state => {
+      return {
+        uploading: state.hasStarted && !state.isPaused && !state.hasFinished,
+        canceling: state.isPaused,
+        finished: state.hasFinished
+      };
+    },
     showStartButton: state =>
       !state.hasStarted && !state.isPaused && !state.hasFinished,
     showPauseButton: state =>
