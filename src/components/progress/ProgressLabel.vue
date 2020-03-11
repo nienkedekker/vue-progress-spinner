@@ -32,7 +32,7 @@ export default {
 }
 
 .percentageLabelUploaded {
-  color: $black;
+  color: $mineshaft-gray;
   font-size: 3.5em;
 }
 

@@ -39,9 +39,13 @@ export default new Vuex.Store({
         if (state.percentageUploaded < state.totalPercentage) {
           state.percentageUploaded++;
         }
+        // Show 100% for half a second because it feels satisfying,
+        // after that, finish upload.
         if (state.percentageUploaded === state.totalPercentage) {
-          commit("finish_upload");
-          clearInterval(state.timerInterval);
+          setTimeout(() => {
+            commit("finish_upload");
+            clearInterval(state.timerInterval);
+          }, 500);
         }
       }, 100);
     },
