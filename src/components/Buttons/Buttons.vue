@@ -29,7 +29,7 @@ export default {
     ...mapGetters(["uploadState"])
   },
   methods: {
-    ...mapActions(["startUpload", "pauseUpload", "resetUpload"]),
+    ...mapActions(["startUpload", "pauseUpload", "resetUpload"])
   }
 };
 </script>
