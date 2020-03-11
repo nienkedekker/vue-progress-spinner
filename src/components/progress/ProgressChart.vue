@@ -1,6 +1,7 @@
 <template>
   <div class="progress" v-if="!uploadState.finished">
     <svg
+      role="img"
       class="spinner"
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"

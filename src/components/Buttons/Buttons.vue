@@ -22,22 +22,14 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
     ...mapGetters(["uploadState"])
   },
   methods: {
-    startUpload() {
-      this.$store.dispatch("startUpload");
-    },
-    pauseUpload() {
-      this.$store.dispatch("pauseUpload");
-    },
-    resetUpload() {
-      this.$store.dispatch("resetUpload");
-    }
+    ...mapActions(["startUpload", "pauseUpload", "resetUpload"]),
   }
 };
 </script>

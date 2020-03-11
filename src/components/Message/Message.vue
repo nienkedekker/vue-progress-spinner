@@ -1,5 +1,5 @@
 <template>
-  <div class="message">
+  <div class="message" aria-live="polite">
     <component :is="getComponent"></component>
   </div>
 </template>

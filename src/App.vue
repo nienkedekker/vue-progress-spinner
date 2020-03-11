@@ -45,13 +45,13 @@ body,
 html {
   background-color: $gallery-white;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica,
     Arial, sans-serif;
   font-size: 100%;
-  line-height: 1.5;
+  line-height: 1;
   box-sizing: border-box;
 }
 
@@ -61,7 +61,7 @@ html {
   align-items: center;
   width: 22em;
   height: 30em;
-  margin: 1em;
+  margin: 2em;
   border: 1px solid $athens-gray;
   background-color: $white;
   border-radius: 20px;

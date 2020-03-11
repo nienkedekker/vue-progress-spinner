@@ -1,5 +1,7 @@
 <template>
-  <div class="percentageLabel">
+  <div class="percentageLabel" aria-live="off">
+    <!-- Probably want to add a visually-hidden upload indicator for screen readers/AT here.
+    Something that only announces the percentage uploaded when it's almost done, or lagging, or something. -->
     <span class="percentageLabelUploaded"
       >{{ percentageUploaded }}
       <span class="percentageSign">%</span>
@@ -12,7 +14,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "ProgressLabel",
   computed: {
-    ...mapGetters(["percentageUploaded"]),
+    ...mapGetters(["percentageUploaded"])
   }
 };
 </script>
