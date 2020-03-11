@@ -1,11 +1,8 @@
 <template>
   <div id="app">
     <div class="container">
-      <ProgressChart
-        :totalPercentage="totalPercentage"
-        :percentageUploaded="percentageUploaded"
-      >
-        <ProgressLabel :percentageUploaded="percentageUploaded" />
+      <ProgressChart>
+        <ProgressLabel />
       </ProgressChart>
       <Message />
       <Buttons />

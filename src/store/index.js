@@ -33,6 +33,8 @@ export default new Vuex.Store({
   actions: {
     startUpload({ commit, state }) {
       commit("start_upload");
+      // Mocking an upload by using `setInterval()`.
+      // Mimicking slower connections can be done by upping the timeout.
       state.timerInterval = setInterval(() => {
         if (state.percentageUploaded < state.totalPercentage) {
           state.percentageUploaded++;
