@@ -9,11 +9,11 @@
       xmlns="http://www.w3.org/2000/svg"
       shape-rendering="geometricPrecision"
     >
-      <circle class="background" cx="50" cy="50" r="45" />
+      <circle class="totalPercentage" cx="50" cy="50" r="45" />
       <circle
         :stroke-dasharray="circumference"
         :stroke-dashoffset="dashOffset"
-        class="foreground"
+        class="percentageUploaded"
         cx="50"
         cy="50"
         r="45"
@@ -59,12 +59,12 @@ export default {
   height: 250px;
 }
 
-.background {
+.totalPercentage {
   stroke-width: 5px;
   stroke: $athens-gray;
 }
 
-.foreground {
+.percentageUploaded {
   stroke-width: 5px;
   transform: rotate(
     90deg
