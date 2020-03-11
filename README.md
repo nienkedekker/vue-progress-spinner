@@ -1,8 +1,10 @@
 # vue-progress-spinner
 [![Netlify Status](https://api.netlify.com/api/v1/badges/35611505-c40c-4dfe-b739-7d53756d87b6/deploy-status)](https://app.netlify.com/sites/vigorous-curran-fdf510/deploys)
 
-## About
 This is a spinner indicating an upload's progress. It's made in Vue, using Vuex for storing state. A demo can be found ![here](https://vigorous-curran-fdf510.netlify.com/).
+
+### Project setup
+For those coming from React the setup may be a little different. `/src` houses the m
 
 ### Trade-offs
 #### State management
