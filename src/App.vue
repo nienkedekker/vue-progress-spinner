@@ -56,8 +56,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 22em;
-  height: 30em;
+  width: 20em;
+  height: 28em;
   margin: 2em;
   border: 1px solid $athens-gray;
   background-color: $white;
@@ -66,7 +66,6 @@ html {
 }
 
 .container {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
