@@ -4,6 +4,8 @@
       role="img"
       class="spinner"
       viewBox="0 0 100 100"
+      width="100"
+      height="100"
       xmlns="http://www.w3.org/2000/svg"
       shape-rendering="geometricPrecision"
     >
@@ -53,6 +55,8 @@ export default {
   fill: none;
   stroke: none;
   animation: rotateSpinner 2s linear infinite;
+  width: 250px;
+  height: 250px;
 }
 
 .background {
