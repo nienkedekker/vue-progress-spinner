@@ -53,18 +53,15 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    showProgress: state => !state.hasFinished,
+    percentageUploaded: state => state.percentageUploaded,
+    totalPercentage: state => state.totalPercentage,
     uploadState: state => {
       return {
+        started: state.hasStarted,
         uploading: state.hasStarted && !state.isPaused && !state.hasFinished,
         canceling: state.isPaused,
         finished: state.hasFinished
       };
-    },
-    showStartButton: state =>
-      !state.hasStarted && !state.isPaused && !state.hasFinished,
-    showPauseButton: state =>
-      state.hasStarted && !state.hasFinished && !state.isPaused
-  },
-  modules: {}
+    }
+  }
 });

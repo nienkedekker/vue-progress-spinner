@@ -4,9 +4,9 @@
   </div>
 </template>
 <script>
-import Finished from "../dialogs/Finished.vue";
-import Canceling from "../dialogs/Canceling";
-import Uploading from "../dialogs/Uploading";
+import Finished from "./dialogs/Finished.vue";
+import Canceling from "./dialogs/Canceling";
+import Uploading from "./dialogs/Uploading";
 import { mapGetters } from "vuex";
 
 export default {
@@ -26,10 +26,15 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .message {
   display: inline-flex;
   align-items: center;
   height: 100%;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>

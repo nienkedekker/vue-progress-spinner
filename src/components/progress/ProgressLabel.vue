@@ -7,16 +7,18 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  props: {
-    percentageUploaded: {
-      type: Number,
-      required: true
-    }
+  name: "ProgressLabel",
+  computed: {
+    ...mapGetters(["percentageUploaded"]),
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
+@import "../../styles/variables";
+
 .percentageLabel {
   position: absolute;
   top: 50%;
@@ -25,21 +27,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-variant-numeric: lining-nums;
 }
 
 .percentageLabelUploaded {
-  color: #000;
+  color: $black;
   font-size: 4em;
 }
 
 .percentageSign {
-  color: #b8bbbd;
+  color: $oslo-gray;
   font-size: 0.45em;
   vertical-align: top;
   display: inline-block;
   position: relative;
   margin-left: -10px;
-  top: 5px;
+  top: 10px;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="buttons">
-    <button @click="startUpload" v-if="showStartButton">
+  <div class="buttonsContainer">
+    <button @click="startUpload" v-if="!uploadState.started">
       Start Upload
     </button>
-    <button @click="pauseUpload" v-if="showPauseButton">
+    <button @click="pauseUpload" v-if="uploadState.uploading">
       Cancel Upload
     </button>
     <button @click="startUpload" v-if="uploadState.canceling">
@@ -26,7 +26,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["showStartButton", "showPauseButton", "uploadState"])
+    ...mapGetters(["uploadState"])
   },
   methods: {
     startUpload() {
@@ -41,37 +41,39 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.buttons {
-  width: 100%;
-  border-top: 1px solid #b8bbbd;
+<style scoped lang="scss">
+@import "../../styles/variables";
+
+.buttonsContainer {
   display: flex;
   justify-content: space-evenly;
-  padding: 20px 30px;
-  box-sizing: border-box;
+  width: 100%;
+  padding: 1.5em;
+  border-top: 1px solid $oslo-gray;
 
   button {
-    border: 1px solid #409fff;
-    color: #409fff;
+    min-width: 7em;
+    padding: 0.8em 2em;
+    border-radius: 500px;
+    border: 1px solid $dodger-blue;
+    color: $dodger-blue;
     font-size: 1em;
     cursor: pointer;
-    background: white;
-    padding: 10px 30px;
-    border-radius: 20px;
+    background-color: $white;
 
     &:hover {
-      color: blue;
-      border-color: blue;
+      color: $science-blue;
+      border-color: $science-blue;
     }
   }
 
   .cancelUpload {
-    background: #409fff;
-    color: white;
+    background: $dodger-blue;
+    color: $white;
 
     &:hover {
-      color: white;
-      background: blue;
+      color: $white;
+      background: $science-blue;
     }
   }
 }

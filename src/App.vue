@@ -30,42 +30,51 @@ export default {
   },
   computed: {
     ...mapState(["totalPercentage", "percentageUploaded"])
-  },
+  }
 };
 </script>
 
 <style lang="scss">
+@import "./styles/variables";
+
+* {
+  box-sizing: border-box;
+}
+
 body,
 html {
-  background-color: #e4e4e4;
+  background-color: $gallery-white;
   width: 100%;
   height: 100vh;
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica,
     Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 #app {
-  border: 1px solid #e8e8e8;
-  margin: 20px;
-  background: #fff;
-  border-radius: 20px;
-  width: 350px;
-  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 6px 3px 29px -24px rgba(0, 0, 0, 0.15);
+  width: 22em;
+  height: 30em;
+  margin: 1em;
+  border: 1px solid $athens-gray;
+  background-color: $white;
+  border-radius: 20px;
+  box-shadow: 6px 3px 29px -24px rgba(0, 0, 0, 0.25);
 }
 
 .container {
   position: relative;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 100%;
 }
 </style>
