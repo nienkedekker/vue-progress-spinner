@@ -40,6 +40,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  height: 100%; // Safari needs this
   padding: 1.5em;
   border-top: 1px solid $oslo-gray;
 
